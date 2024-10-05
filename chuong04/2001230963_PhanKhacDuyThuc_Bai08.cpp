@@ -1,21 +1,12 @@
 #include <stdio.h>
 #include <conio.h>
 
-int main() {
-    int n, tram, chuc, donVi;
+void docSo(int n) {
     const char *t, *c, *dv;
 
-    do {
-        printf("Nhap n: ");
-        scanf("%d", &n);
-
-        if (n <= 0 || n >= 1000) 
-            printf("So nhap vao khong hop le. Vui long nhap lai.\n");
-    } while(n >= 1000 || n <= 0);
-
-    tram = n / 100;
-    chuc = (n % 100) / 10;
-    donVi = n % 10;
+    int tram = n / 100;
+    int chuc = (n % 100) / 10;
+    int donVi = n % 10;
 
     switch(tram) {
         case 1: t = "mot tram"; break;
@@ -57,6 +48,21 @@ int main() {
     }
 
     printf("So %d doc la: %s %s %s", n, t, c, dv);
+
+}
+
+
+int main() {
+    int n;
+    do {
+        printf("Nhap n: ");
+        scanf("%d", &n);
+
+        if (n <= 0 || n >= 1000) 
+            printf("So nhap vao khong hop le. Vui long nhap lai.\n");
+    } while(n >= 1000 || n <= 0);
+
+    docSo(n);
 
     _getch();
     return 0;
